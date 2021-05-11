@@ -62,10 +62,35 @@
     // print_r($devuelta);
 
     
-    $lista = (array) [(string) 'Miguel',(string) 'Juan',(string) 'Jose',(string) 'Diana',  (array) ['Jaime', 'Lopez']];
-    // $devuelta = array_pop($lista);
-    print_r($lista);
-    echo "<br>";
+    // $lista = (array) [(string) 'Miguel',(string) 'Juan',(string) 'Jose',(string) 'Diana',  (array) ['Jaime', 'Lopez']];
+    // // $devuelta = array_pop($lista);
+    // print_r($lista);
+    // echo "<br>";
     // print_r($devuelta);
 
+    header('Content-Type: aplication-json');
+    
+    $lista = (array) [
+        (string) 'Miguel',
+        (string) 'Juan', 
+        (string) 'Jose',
+        (string) 'Diana',
+        (array) ['Jaime', 'Lopez']];
+//Metodo Slice, separala de la lista o Array  los datos q deseamos ver y devuelve una lista o array nuevo con esos datos
+    // $devuelta = (array) array_slice(
+    //     array: (array) $lista,
+    //     offset: (int) -1
+    //     preserve_keys: (bool) true 
+    // );
+    
+    $devuelta = (array) array_splice(
+        array: $lista, 
+        offset: 1,// la posicion donde me ubico en el array, si es negativo empieza desde el final
+        length: 3,
+        replacement: ['William', 'William2', 'Willian3']
+    );
+    print_r($lista);
+    print_r($devuelta);
+
+   
 ?>
